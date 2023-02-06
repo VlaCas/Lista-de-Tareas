@@ -15,20 +15,22 @@ body {
 }
 
 .contenedor {
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   width: 75%;
-  height: 50%;
+  height: 6rem;
   border: 1px solid rgba(50, 50, 50, 0.01);
   border-radius: 2rem;
   padding: 1.2rem;
   box-shadow: 0 0 0.1rem 0.15rem rgba(255, 255, 255, 0.01);
+  transition: height 0.5s ease;
 }
 .contenedor hr {
   border: none;
   height: 1px;
   background-color: rgba(255, 255, 255, 0.1);
+  margin-bottom: 0.8rem;
 }
 
 .encabezado {
@@ -51,21 +53,15 @@ body {
   cursor: pointer;
   transition: background 0.15s ease-out;
 }
-.encabezado button:hover {
-  background: rgba(255, 255, 255, 0.25);
-}
-
 .tarea {
   background: rgba(0, 0, 0, 0.01);
   width: 85%;
-  margin-top: 0.8rem;
   font-family: "Quicksand", sans-serif;
   border: none;
-  font-size: 1rem;
+  font-size: 0.8rem;
   color: white;
   resize: none;
-  height: 1.23rem;
-  overflow-y: visible;
+  margin-bottom: 0.4rem;
 }
 
 .tarea:focus {
