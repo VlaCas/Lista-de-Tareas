@@ -1,0 +1,65 @@
+*, *::before, *::after
+    box-sizing: border-box
+    margin: 0
+    padding: 0
+
+body
+    background: radial-gradient(at center bottom, rgb(0, 63, 205) -35%, rgb(1, 2, 8) 70%)
+    height: 100vh
+    display: flex
+    justify-content: center
+    align-items: center
+    font-family: 'Quicksand', sans-serif
+    font-display: swap
+
+.contenedor
+    background: rgba(0, 0, 0, .5)
+    backdrop-filter: blur(4px)
+    -webkit-backdrop-filter: blur(4px)
+    width: 75%
+    height: 50%
+    border: 1px solid rgba(50, 50, 50, 0.01)
+    border-radius: 2rem
+    padding: 1.2rem
+    box-shadow: 0 0 .1rem .15rem rgba(255, 255, 255, .01)
+    hr
+        border: none
+        height: 1px
+        background-color: rgba(255, 255, 255, .1)
+        
+    
+.encabezado
+    display: flex
+    justify-content: space-between
+    align-items: center
+    padding: 0 1rem
+    margin-bottom: .8rem
+    h1
+        color: white
+        display: inline
+    button
+        background: rgba(255, 255, 255, .08)
+        border: none
+        padding: 8px
+        border-radius: 2rem
+        height: 36px
+        cursor: pointer
+        transition: background .15s ease-out     
+    button:hover
+        background: rgba(255, 255, 255, .25)
+
+.tarea
+    background: rgba(0, 0, 0, .01)
+    width: 85%
+    margin-top: .8rem
+    font-family: 'Quicksand', sans-serif
+    border: none
+    font-size: 1rem
+    color: white
+    resize: none
+    height: 1.23rem
+    overflow-y: visible
+
+.tarea:focus
+    outline: none
+    border: none
