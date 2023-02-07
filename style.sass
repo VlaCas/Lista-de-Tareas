@@ -2,6 +2,13 @@
     box-sizing: border-box
     margin: 0
     padding: 0
+.material-symbols-outlined 
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+
 
 body
     background: radial-gradient(at center bottom, rgb(0, 63, 205) -35%, rgb(1, 2, 8) 70%)
@@ -48,6 +55,8 @@ body
         transition: background .15s ease-out     
     button:hover
         //background: rgba(255, 255, 255, .25)
+    button:active
+        background: rgba(255, 255, 255, .25)
 
 .tarea
     background: rgba(0, 0, 0, .01)
@@ -62,3 +71,12 @@ body
 .tarea:focus
     outline: none
     border: none
+
+.parrafos
+    background: rgba(0, 0, 0, .01)
+    width: 85%
+    font-family: 'Quicksand', sans-serif
+    border: none
+    font-size: .8rem
+    color: white
+    margin-bottom: .4rem

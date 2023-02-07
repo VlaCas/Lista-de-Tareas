@@ -53,6 +53,10 @@ body {
   cursor: pointer;
   transition: background 0.15s ease-out;
 }
+.encabezado button:active {
+  background: rgba(255, 255, 255, 0.25);
+}
+
 .tarea {
   background: rgba(0, 0, 0, 0.01);
   width: 85%;
@@ -67,4 +71,14 @@ body {
 .tarea:focus {
   outline: none;
   border: none;
+}
+
+.parrafos {
+  background: rgba(0, 0, 0, 0.01);
+  width: 85%;
+  font-family: "Quicksand", sans-serif;
+  border: none;
+  font-size: 0.8rem;
+  color: white;
+  margin-bottom: 0.4rem;
 }/*# sourceMappingURL=style.css.map */
