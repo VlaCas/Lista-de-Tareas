@@ -41,7 +41,8 @@ body {
   padding: 0 1rem;
   margin-bottom: 0.8rem;
 }
-.encabezado h1 {
+
+h1 {
   color: white;
   display: inline;
 }
@@ -90,6 +91,21 @@ body {
   border: none;
 }
 
+.tarea::-moz-placeholder {
+  color: grey;
+  font-weight: 500;
+}
+
+.tarea:-ms-input-placeholder {
+  color: grey;
+  font-weight: 500;
+}
+
+.tarea::placeholder {
+  color: grey;
+  font-weight: 500;
+}
+
 .parrafos {
   background: rgba(0, 0, 0, 0.01);
   width: 85%;
@@ -99,6 +115,7 @@ body {
   color: white;
   margin-bottom: 0.4rem;
   word-break: break-all;
+  font-weight: 500;
 }
 
 .botonesAcciones {
@@ -106,8 +123,4 @@ body {
   height: 20px;
   border: none;
   background: rgba(255, 255, 255, 0.08);
-}
-
-.modoOscuro {
-  background: radial-gradient(at center bottom, rgb(191, 211, 232) -35%, rgb(126, 170, 199) 70%);
 }/*# sourceMappingURL=style.css.map */

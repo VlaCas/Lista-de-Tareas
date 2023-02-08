@@ -36,9 +36,10 @@ body
     align-items: center
     padding: 0 1rem
     margin-bottom: .8rem
-    h1
-        color: white
-        display: inline
+    
+h1
+    color: white
+    display: inline
 
 #botonCambiarTema
     background: rgba(255, 255, 255, .08)
@@ -60,7 +61,7 @@ body
     border-radius: 2rem
     height: 36px
     cursor: pointer
-    transition: background .15s ease-out     
+    transition: background .15s ease-out    
 #botonAggTarea:hover
     //background: rgba(255, 255, 255, .25)
 #botonAggTarea:active
@@ -80,6 +81,12 @@ body
     outline: none
     border: none
 
+.tarea::placeholder
+    color: grey
+    font-weight: 500
+
+
+
 .parrafos
     background: rgba(0, 0, 0, .01)
     width: 85%
@@ -89,12 +96,10 @@ body
     color: white
     margin-bottom: .4rem
     word-break: break-all
+    font-weight: 500
 
 .botonesAcciones
     width: 20px
     height: 20px
     border: none
     background: rgba(255, 255, 255, .08)
-
-.modoOscuro
-    background: radial-gradient(at center bottom, rgb(191,211,232) -35%, rgb(126,170,199) 70%)
