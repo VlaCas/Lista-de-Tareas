@@ -84,4 +84,4 @@ let cambiarTema = () => {
         document.querySelector("hr").style = "background-color: rgba(255, 255, 255, .1)";
         parrafos = document.querySelectorAll("p");
         for (i = 0; i < parrafos.length; i++) {
-            parrafos[i].style = "color: white"}}}
+            parrafos[i].style = "color: white; background"}}}
