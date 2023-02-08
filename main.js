@@ -1,34 +1,51 @@
 let altTar = 6
+unaList = true
 crearTarea = () => {
-    altTar = altTar + 1.65
+
+    altTar = altTar + 1.4
     document.getElementsByClassName("contenedor")[0].style.height = altTar + "rem";
+
     setTimeout(() => {
+
         let contenedor = document.getElementsByClassName("contenedor")[0];
-        listTar = document.createElement("ol");
+        if (unaList) {listTar = document.createElement("ol"); listTar.setAttribute("id", "listaTareas"); unaList = false};
+
         let newTar = document.createElement("textArea");
         newTar.setAttribute("class", "tarea");
         newTar.setAttribute("placeHolder", "Nueva tarea...");
         newTar.setAttribute("rows", "1");
         contenedor.appendChild(listTar);
-        listTar.appendChild(newTar);
+        document.getElementById("listaTareas").appendChild(newTar);
         newTar.focus();
+        
+
         newTar.addEventListener("blur", () => {
-            let p = document.createElement("p");
-            p.innerText = newTar.value;
-            newP.setAttribute("class", "parrafos")
-            listTar.replaceChild(p, newTar);
-            
-        });
+            if (newTar.parentNode) {
+                console.log("desenfocado");
+                let p = document.createElement("p");
+                p.setAttribute("class", "parrafos");
+                listTar.replaceChild(p, newTar);
+                p.innerText = newTar.value;
+                if (p.innerText.length == 0) {p.innerText = "Nueva Tarea..."} 
+                else if (p.innerText.length >= 23 && window.innerWidth <= 350) {document.getElementsByClassName("contenedor")[0].style.height = altTar + 1 + "rem"; altTar = altTar + 1}
+                console.log(p.innerText.length)}});
+
         newTar.addEventListener("keydown", function(event) {
             if (event.key === "Enter") {
-              let text = this.value;
-              let newP = document.createElement("p");
-              newP.innerText = text;
-              this.replaceWith(newP);
-              newP.setAttribute("class", "parrafos")
-            }
-        
-        });
-        
-    }, 0500);
-};
+                console.log("presiono enter")
+                let text = newTar.value;
+                if (text.length >= 23 && window.innerWidth <= 350) {document.getElementsByClassName("contenedor")[0].style.height = altTar + 1 + "rem"}
+                let p = document.createElement("p");
+                p.innerText = text;
+                p.setAttribute("class", "parrafos");
+                let bot = document.createElement("button");
+                let bot2 = document.createElement("button");
+                let bot3 = document.createElement("button");
+                bot.setAttribute("class", "botonesAcciones");
+
+
+                listTar.replaceChild(p, newTar)}})}, 0700)}
+
+let cambiarTema = () => {
+    document.body.style = "background: radial-gradient(at center bottom, rgb(191,211,232) -35%, rgb(126,170,199) 70%); transition: background 1s ease;"
+}

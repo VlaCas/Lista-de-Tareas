@@ -12,6 +12,7 @@ body {
   align-items: center;
   font-family: "Quicksand", sans-serif;
   font-display: swap;
+  transition: background 1s ease;
 }
 
 .contenedor {
@@ -44,7 +45,22 @@ body {
   color: white;
   display: inline;
 }
-.encabezado button {
+
+#botonCambiarTema {
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+  border-radius: 2rem;
+  padding: 3px 3px 0px 3.5px;
+  height: 36px;
+  cursor: pointer;
+  transition: background 0.15s ease-out;
+}
+
+#botonCambiarTema:active {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+#botonAggTarea {
   background: rgba(255, 255, 255, 0.08);
   border: none;
   padding: 8px;
@@ -53,7 +69,8 @@ body {
   cursor: pointer;
   transition: background 0.15s ease-out;
 }
-.encabezado button:active {
+
+#botonAggTarea:active {
   background: rgba(255, 255, 255, 0.25);
 }
 
@@ -81,4 +98,16 @@ body {
   font-size: 0.8rem;
   color: white;
   margin-bottom: 0.4rem;
+  word-break: break-all;
+}
+
+.botonesAcciones {
+  width: 20px;
+  height: 20px;
+  border: none;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.modoOscuro {
+  background: radial-gradient(at center bottom, rgb(191, 211, 232) -35%, rgb(126, 170, 199) 70%);
 }/*# sourceMappingURL=style.css.map */
