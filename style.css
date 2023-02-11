@@ -84,8 +84,8 @@ h1 {
   color: white;
   resize: none;
   width: 90%;
-  word-break: break-all;
   font-weight: 600;
+  word-break: keep-all;
 }
 
 .tarea:focus {
@@ -124,6 +124,7 @@ h1 {
   transition: -webkit-text-decoration 0.5s ease;
   transition: text-decoration 0.5s ease;
   transition: text-decoration 0.5s ease, -webkit-text-decoration 0.5s ease;
+  word-break: keep-all;
 }
 
 .botonesAcciones {
