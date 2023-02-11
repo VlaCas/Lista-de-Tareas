@@ -5,8 +5,15 @@ let tareaTerminada = false
 
 crearTarea = () => {
 
-    altTar = altTar + 1.65
-    document.getElementsByClassName("contenedor")[0].style.height = altTar + "rem";
+    if (window.innerWidth <= 350) {
+        altTar = altTar + 1.65
+        document.getElementsByClassName("contenedor")[0].style.height = altTar + "rem";
+    }
+    else {
+        altTar = altTar + 2.90
+        document.getElementsByClassName("contenedor")[0].style.height = altTar + "rem";
+    }
+    
 
     setTimeout(() => {
 
@@ -34,13 +41,13 @@ crearTarea = () => {
         
         newTar.addEventListener("blur", () => {
             if (newTar.parentNode) {
-                console.log("desenfocado");
                 let p = document.createElement("p");
                 p.setAttribute("class", "parrafos");
                 p.innerText = newTar.value;
                 p.style = "color: " + colPar;
                 if (p.innerText.length == 0) {p.innerText = "Nueva tarea..."}
-                else if (p.innerText.length >= 18 && window.innerWidth <= 350) {document.getElementsByClassName("contenedor")[0].style.height = altTar + 1.1 + "rem"; altTar = altTar + 1.1};
+                else if (p.innerText.length >= 18 && window.innerWidth <= 350) {document.getElementsByClassName("contenedor")[0].style.height = altTar + 1.1 + "rem"; altTar = altTar + 1.1}
+                else if (p.innerText.length >= 49 && window.innerWidth >= 1080) {document.getElementsByClassName("contenedor")[0].style.height = altTar + .45 + "rem"; altTar = altTar + .45};
 
                 const bot = document.createElement("button");
                 const bot2 = document.createElement("button");
@@ -54,9 +61,17 @@ crearTarea = () => {
 
                 const botsvg1 = document.createElementNS("http://www.w3.org/2000/svg", "svg");
                 botsvg1.setAttribute("xmlns", "http://www.w3.org/2000/svg");
-                botsvg1.setAttribute("width", "16");
-                botsvg1.setAttribute("height", "16");
-                botsvg1.setAttribute("viewBox", "-1.5 2.5 25 20");
+                
+                if (window.innerWidth <= 350) {
+                    botsvg1.setAttribute("width", "16");
+                    botsvg1.setAttribute("height", "16");
+                    botsvg1.setAttribute("viewBox", "-1.5 2.5 25 20");
+                }
+                else {
+                    botsvg1.setAttribute("width", "26");
+                    botsvg1.setAttribute("height", "26");
+                    botsvg1.setAttribute("viewBox", "4.5 2.5 15 20");
+                }
                 const polygon = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
                 polygon.setAttribute("points", "16 3 21 8 8 21 3 21 3 16 16 3");
                 polygon.setAttribute("fill", "none");
@@ -69,9 +84,17 @@ crearTarea = () => {
 
                 const botsvg2 = document.createElementNS("http://www.w3.org/2000/svg", "svg");
                 botsvg2.setAttribute("xmlns", "http://www.w3.org/2000/svg");
-                botsvg2.setAttribute("width", "16");
-                botsvg2.setAttribute("height", "16");
-                botsvg2.setAttribute("viewBox", "0 0 24 24");
+
+                if (window.innerWidth <= 350) {
+                    botsvg2.setAttribute("width", "16");
+                    botsvg2.setAttribute("height", "16");
+                    botsvg2.setAttribute("viewBox", "0 0 24 24");
+                }
+                else {
+                    botsvg2.setAttribute("width", "26");
+                    botsvg2.setAttribute("height", "26");
+                    botsvg2.setAttribute("viewBox", "9 3 5 18");
+                }
                 const polyline = document.createElementNS("http://www.w3.org/2000/svg", "polyline");
                 polyline.setAttribute("points", "20 6 9 17 4 12");
                 polyline.setAttribute("fill", "none");
@@ -83,9 +106,17 @@ crearTarea = () => {
                 bot2.appendChild(botsvg2);
 
                 const botsvg3 = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-                botsvg3.setAttributeNS(null, "width", "16");
-                botsvg3.setAttributeNS(null, "height", "16");
-                botsvg3.setAttributeNS(null, "viewBox", "-1.2 0 26 24");
+
+                if (window.innerWidth <= 350) {
+                    botsvg3.setAttribute("width", "16");
+                    botsvg3.setAttribute("height", "16");
+                    botsvg3.setAttribute("viewBox", "-1.2 0 26 24");
+                }
+                else {
+                    botsvg3.setAttribute("width", "26");
+                    botsvg3.setAttribute("height", "26");
+                    botsvg3.setAttribute("viewBox", "4 1 15 23");
+                }
                 botsvg3.setAttributeNS(null, "fill", "none");
                 botsvg3.setAttributeNS(null, "stroke", "#ffffff");
                 botsvg3.setAttributeNS(null, "stroke-width", "2");
@@ -115,6 +146,7 @@ crearTarea = () => {
                     let textArea = document.createElement("textarea");
                     textArea.setAttribute("class", "tarea");
                     textArea.setAttribute("rows", "1");
+                    textArea.style = "padding-top: 0"
                     textArea.value = div2.lastChild.innerText;
                     div2.removeChild(div2.lastChild)
                     div2.appendChild(textArea);
@@ -126,8 +158,10 @@ crearTarea = () => {
                         parrafo.innerText = textArea.value;
                         parrafo.setAttribute("class", "parrafos");
                         parrafo.style.color = colPar
+                        if (parrafo.innerText.length >= 49 && window.innerWidth >= 1080) {document.getElementsByClassName("contenedor")[0].style.height = altTar + .4 + "rem"; altTar = altTar + .4};
                         div2.removeChild(div2.lastChild)
                         div2.appendChild(parrafo)});
+                        
 
                     textArea.addEventListener("keydown", function(event){
                         if (event.key === "Enter") {
@@ -149,16 +183,20 @@ crearTarea = () => {
 
                 bot3.addEventListener("click", () => {
                     listTar.removeChild(div1)
-                    document.getElementsByClassName("contenedor")[0].style.height = altTar - 1.65 + "rem"; altTar = altTar - 1.65
-                    if (p.innerText.length >= 18 && window.innerWidth <= 350) {document.getElementsByClassName("contenedor")[0].style.height = altTar - 1.1 + "rem"; altTar = altTar - 1.1};
-                })
+                    if (window.innerWidth <= 350) {
+                        document.getElementsByClassName("contenedor")[0].style.height = altTar - 1.65 + "rem"; altTar = altTar - 1.65
+                        if (p.innerText.length >= 18 && window.innerWidth <= 350) {document.getElementsByClassName("contenedor")[0].style.height = altTar - 1.1 + "rem"; altTar = altTar - 1.1};
+                    }
+                    else {
+                        document.getElementsByClassName("contenedor")[0].style.height = altTar - 2.9 + "rem"; altTar = altTar - 2.9
+                        // if (p.innerText.length >= 49 && window.innerWidth >= 1080) {document.getElementsByClassName("contenedor")[0].style.height = altTar - 3.4 + "rem"; altTar = altTar - 3.4};
+                    }})
 
 
                 div2.replaceChild(p, newTar)}});
 
         newTar.addEventListener("keydown", function(event) {
             if (event.key === "Enter") {
-                console.log("presiono enter")
                 let text = newTar.value;
                 let p = document.createElement("p");
                 p.innerText = text;
@@ -181,13 +219,9 @@ let cambiarTema = () => {
         svg2line1.setAttribute("stroke", "#5370a7");
         svg2line2.setAttribute("stroke", "#5370a7");
         document.querySelector("hr").style = "background-color: rgb(128, 151, 203)";
-
-        
-
         parrafos = document.querySelectorAll("p");
         for (i = 0; i < parrafos.length; i++) {
             textDecoration = window.getComputedStyle(parrafos[i]);
-            console.log(textDecoration)
             if (textDecoration.getPropertyValue("text-decoration") === "none solid rgb(255, 255, 255)") {
                 parrafos[i].style = "color: rgb(61, 81, 139);"}}}
     else {
@@ -207,6 +241,5 @@ let cambiarTema = () => {
         parrafos = document.querySelectorAll("p");
         for (i = 0; i < parrafos.length; i++) {
             textDecoration = window.getComputedStyle(parrafos[i]);
-            console.log(textDecoration)
             if (textDecoration.getPropertyValue("text-decoration") === "none solid rgb(61, 81, 139)") {
                 parrafos[i].style = "color: white;"}}}}
