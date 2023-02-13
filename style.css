@@ -162,6 +162,41 @@ h1 {
   gap: 2px;
 }
 
+.cambioTema {
+  background: radial-gradient(at center bottom, rgb(191, 211, 232) -35%, rgb(126, 170, 199) 70%);
+}
+.cambioTema #contenedor {
+  background: rgba(255, 255, 255, 0.25);
+}
+.cambioTema h1 {
+  color: #5370a7;
+}
+.cambioTema #botonCambiarTema {
+  background: rgba(255, 255, 255, 0.4);
+}
+.cambioTema #botonAggTarea {
+  background: rgba(255, 255, 255, 0.4);
+}
+.cambioTema #svg1 {
+  fill: none;
+  stroke: #5370a7;
+}
+.cambioTema #svg2 #svgLine1 {
+  stroke: #5370a7;
+}
+.cambioTema #svg2 #svgLine2 {
+  stroke: #5370a7;
+}
+.cambioTema hr {
+  background-color: rgb(128, 151, 203);
+}
+.cambioTema .parrafos {
+  color: rgb(61, 81, 139);
+}
+.cambioTema .tarea {
+  color: rgb(61, 81, 139);
+}
+
 @media only screen and (min-width: 1080px) {
   .contenedor {
     width: 50%;
@@ -176,7 +211,6 @@ h1 {
   .parrafos {
     font-size: 1.2rem;
     width: 90%;
-    color: rgb(61, 81, 139);
   }
   .contenedorBotonesAcciones {
     width: 20%;

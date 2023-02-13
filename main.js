@@ -1,6 +1,5 @@
 let altTar = 6;
 let unaList = true;
-let colPar = "white";
 let tareaTerminada = false;
 
 crearTarea = () => {
@@ -48,7 +47,6 @@ crearTarea = () => {
                 let p = document.createElement("p");
                 p.setAttribute("class", "parrafos");
                 p.innerText = newTar.value;
-                p.style = "color: " + colPar;
                 if (p.innerText.length == 0) {p.innerText = "Nueva tarea..."}
                 else if (p.innerText.length >= 18 && window.innerWidth <= 350) {document.getElementsByClassName("contenedor")[0].style.height = altTar + 1.1 + "rem"; altTar = altTar + 1.1}
                 else if (p.innerText.length >= 49 && window.innerWidth >= 1080) {document.getElementsByClassName("contenedor")[0].style.height = altTar + .45 + "rem"; altTar = altTar + .45};
@@ -77,7 +75,6 @@ crearTarea = () => {
                         let parrafo = document.createElement("p");
                         parrafo.innerText = textArea.value;
                         parrafo.setAttribute("class", "parrafos");
-                        parrafo.style.color = colPar
                         if (parrafo.innerText.length >= 49 && window.innerWidth >= 1080) {document.getElementsByClassName("contenedor")[0].style.height = altTar + .4 + "rem"; altTar = altTar + .4};
                         div2.removeChild(div2.lastChild)
                         div2.appendChild(parrafo)});
@@ -91,15 +88,7 @@ crearTarea = () => {
                             div2.removeChild(div2.lastChild);
                             div2.appendChild(parrafo)}})})
                     
-                listBot[1].addEventListener("click", () => {
-                    if (div2.lastChild.style.color == "grey") {
-                        if (colPar == "white"){
-                            div2.lastChild.style = "text-decoration: none; color: white;"}
-                        else
-                            div2.lastChild.style = "text-decoration: none; color: rgb(61, 81, 139);"
-                            }
-                    else {
-                        div2.lastChild.style = "text-decoration: line-through; color: grey;"}});
+                listBot[1].addEventListener("click", () => {div2.lastChild.style.textDecoration == "none" ? div2.lastChild.style = "text-decoration: line-through; color: grey" : div2.lastChild.style = "text-decoration: none"});
 
                 listBot[2].addEventListener("click", () => {
                     listTar.removeChild(div1)
@@ -121,50 +110,7 @@ crearTarea = () => {
                 let text = newTar.value;
                 let p = document.createElement("p");
                 p.innerText = text;
-                p.style = "color: " + colPar
                 p.setAttribute("class", "parrafos");
                 div2.replaceChild(p, newTar)}})}, 0700)}
 
-let cambiarTema = () => {
-    if (colPar == "white") { 
-        colPar = "rgb(61, 81, 139)";
-        document.body.style.background = "radial-gradient(at center bottom, rgb(191,211,232) -35%, rgb(126,170,199) 70%)";
-        document.getElementsByTagName("div")[0].style.background = "rgba(255, 255, 255, .25)";
-        document.getElementsByTagName("h1")[0].style = "color: #5370a7 ";
-        document.getElementsByTagName("button")[0].style = "background: rgba(255, 255, 255, 0.40)";
-        document.getElementsByTagName("svg")[0].style = "fill: none; stroke: #5370a7;";
-        document.getElementsByTagName("button")[1].style = "background: rgba(255, 255, 255, 0.40)";
-        svg2 = document.getElementsByTagName("svg")[1];
-        svg2line1 = svg2.getElementsByTagName("line")[0];
-        svg2line2 = svg2.getElementsByTagName("line")[1];
-        svg2line1.setAttribute("stroke", "#5370a7");
-        svg2line2.setAttribute("stroke", "#5370a7");
-        hr = document.querySelectorAll("hr");
-        for (i = 0; i < hr.length; i++) {
-            hr[i].style = "background-color: rgb(128, 151, 203)"}
-        parrafos = document.querySelectorAll("p");
-        for (i = 0; i < parrafos.length; i++) {
-            textDecoration = window.getComputedStyle(parrafos[i]);
-            if (textDecoration.getPropertyValue("text-decoration") === "none solid rgb(255, 255, 255)") {
-                parrafos[i].style = "color: rgb(61, 81, 139);"}}}
-    else {
-        colPar = "white";
-        document.body.style.background = "radial-gradient(at center bottom, rgb(0, 63, 205) -35%, rgb(1, 2, 8) 70%)";
-        document.getElementsByTagName("div")[0].style.background = "rgba(0, 0, 0, .4)";
-        document.getElementsByTagName("h1")[0].style = "color: white";
-        document.getElementsByTagName("button")[0].style = "background: rgba(255, 255, 255, .08)";
-        document.getElementsByTagName("svg")[0].style = "fill: #fff; stroke: #fff;";
-        document.getElementsByTagName("button")[1].style = "background: rgba(255, 255, 255, .08)";
-        svg2 = document.getElementsByTagName("svg")[1];
-        svg2line1 = svg2.getElementsByTagName("line")[0];
-        svg2line2 = svg2.getElementsByTagName("line")[1];
-        svg2line1.setAttribute("stroke", "#fff");
-        svg2line2.setAttribute("stroke", "#fff");
-        hr = document.querySelectorAll("hr");
-        for (i = 0; i < hr.length; i++) {
-            hr[i].style = "background-color: rgba(255, 255, 255, .1)"}
-        parrafos = document.querySelectorAll("p");
-        for (i = 0; i < parrafos.length; i++) {
-            textDecoration = window.getComputedStyle(parrafos[i]);
-            if (textDecoration.getPropertyValue("text-decoration") === "none solid rgb(61, 81, 139)") {
-                parrafos[i].style = "color: white;"}}}}
+let cambiarTema = () => {document.body.classList.toggle("cambioTema")}
