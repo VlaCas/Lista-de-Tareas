@@ -19,12 +19,14 @@ body
     backdrop-filter: blur(4px)
     -webkit-backdrop-filter: blur(4px)
     width: 75%
-    height: 6rem
+    height: auto
     border: 1px solid rgba(50, 50, 50, 0.01)
     border-radius: 2rem
     padding: 1.2rem
     box-shadow: 0 0 .1rem .15rem rgba(255, 255, 255, .01)
-    transition: height .5s ease
+    -o-transition: height 1s ease
+    -webkit-transition: height 1s ease
+    -moz-transition: height 1s ease
 
 hr
     border: none
@@ -93,12 +95,9 @@ h1
     border: none
     font-size: .8rem
     color: white
-    word-break: break-all
     font-weight: 600
     overflow: visible
     width: 90%
-    text-decoration: none
-    transition: text-decoration .5s ease
     word-break: keep-all
 
 .botonesAcciones
