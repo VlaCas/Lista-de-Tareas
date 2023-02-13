@@ -41,7 +41,6 @@ crearTarea = () => {
         newTar.setAttribute("placeHolder", "Nueva tarea...");
         newTar.setAttribute("rows", "1");
         div2.appendChild(newTar);
-
         newTar.focus();
         
         newTar.addEventListener("blur", () => {
@@ -54,27 +53,16 @@ crearTarea = () => {
                 else if (p.innerText.length >= 18 && window.innerWidth <= 350) {document.getElementsByClassName("contenedor")[0].style.height = altTar + 1.1 + "rem"; altTar = altTar + 1.1}
                 else if (p.innerText.length >= 49 && window.innerWidth >= 1080) {document.getElementsByClassName("contenedor")[0].style.height = altTar + .45 + "rem"; altTar = altTar + .45};
 
-                const bot = document.createElement("button");
-                const bot2 = document.createElement("button");
-                const bot3 = document.createElement("button");
-                bot.setAttribute("class", "botonesAcciones");
-                bot2.setAttribute("class", "botonesAcciones");
-                bot3.setAttribute("class", "botonesAcciones");
-                div3.appendChild(bot);
-                div3.appendChild(bot2);
-                div3.appendChild(bot3);
+                let listBot = [bot1=undefined,bot2=undefined,bot3=undefined,botSvg1=undefined,botSvg2=undefined,botSvg3=undefined,"icon1-a.svg","icon2-a.svg","icon3-a.svg","icon1-b.svg","icon2-b.svg","icon3-b.svg"];
+                for (i = 0; i <= 2; i++) {
+                    listBot[i] = document.createElement("button");
+                    listBot[i].setAttribute("class", "botonesAcciones");
+                    div3.appendChild(listBot[i])
+                    listBot[i+3] = document.createElement("img");
+                    window.innerWidth <= 350 ? listBot[i+3].setAttribute("src", listBot[i+6]) : listBot[i+3].setAttribute("src", listBot[i+9]);
+                    listBot[i].appendChild(listBot[i+3])};
 
-                const botsvg1 = document.createElement("img");
-                window.innerWidth <= 350 ? botsvg1.setAttribute("src", "icon1-a.svg") : botsvg1.setAttribute("src", "icon1-b.svg");
-                bot.appendChild(botsvg1);
-                const botsvg2 = document.createElement("img");
-                window.innerWidth <= 350 ? botsvg2.setAttribute("src", "icon2-a.svg") : botsvg2.setAttribute("src", "icon2-b.svg");
-                bot2.appendChild(botsvg2);
-                const botsvg3 = document.createElement("img");
-                window.innerWidth <= 350 ? botsvg3.setAttribute("src", "icon3-a.svg") : botsvg3.setAttribute("src", "icon3-b.svg");
-                bot3.appendChild(botsvg3);
-
-                bot.addEventListener("click", () => {
+                listBot[0].addEventListener("click", () => {
                     let textArea = document.createElement("textarea");
                     textArea.setAttribute("class", "tarea");
                     textArea.setAttribute("rows", "1");
@@ -103,7 +91,7 @@ crearTarea = () => {
                             div2.removeChild(div2.lastChild);
                             div2.appendChild(parrafo)}})})
                     
-                bot2.addEventListener("click", () => {
+                listBot[1].addEventListener("click", () => {
                     if (div2.lastChild.style.color == "grey") {
                         if (colPar == "white"){
                             div2.lastChild.style = "text-decoration: none; color: white;"}
@@ -113,7 +101,7 @@ crearTarea = () => {
                     else {
                         div2.lastChild.style = "text-decoration: line-through; color: grey;"}});
 
-                bot3.addEventListener("click", () => {
+                listBot[2].addEventListener("click", () => {
                     listTar.removeChild(div1)
                     listTar.removeChild(hr1)
                     if (window.innerWidth <= 350) {
