@@ -141,7 +141,7 @@ h1 {
 .contenedorTarea {
   display: flex;
   align-items: center;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.8rem;
 }
 
 .contenedorTextoTarea {
@@ -168,6 +168,7 @@ h1 {
   }
   .contenedorTarea {
     justify-content: space-between;
+    min-height: 40px;
   }
   .contenedorTextoTarea {
     width: 80%;
@@ -175,6 +176,7 @@ h1 {
   .parrafos {
     font-size: 1.2rem;
     width: 90%;
+    color: rgb(61, 81, 139);
   }
   .contenedorBotonesAcciones {
     width: 20%;
@@ -186,7 +188,6 @@ h1 {
   }
   .tarea {
     font-size: 1.2rem;
-    padding-top: 8px;
   }
   .tarea::-moz-placeholder {
     font-size: 1.2rem;

@@ -1,35 +1,40 @@
-let altTar = 6
-let unaList = true
-let colPar = "white"
-let tareaTerminada = false
+let altTar = 6;
+let unaList = true;
+let colPar = "white";
+let tareaTerminada = false;
 
 crearTarea = () => {
 
     if (window.innerWidth <= 350) {
-        altTar = altTar + 1.65
+        altTar = altTar + 2.85;
         document.getElementsByClassName("contenedor")[0].style.height = altTar + "rem";
     }
     else {
-        altTar = altTar + 2.90
+        altTar = altTar + 4.2;
         document.getElementsByClassName("contenedor")[0].style.height = altTar + "rem";
-    }
-    
+    }; 
 
     setTimeout(() => {
 
         const contenedor = document.getElementsByClassName("contenedor")[0];
-        if (unaList) {listTar = document.createElement("ol"); listTar.setAttribute("id", "listaTareas"); unaList = false};
-        contenedor.appendChild(listTar);
+        if (unaList) {
+            listTar = document.createElement("ol"); 
+            listTar.setAttribute("id", "listaTareas"); 
+            unaList = false;
+        };
 
+        contenedor.appendChild(listTar);
         const div1 = document.createElement("div");
         const div2 = document.createElement("div");
         const div3 = document.createElement("div");
         div1.setAttribute("class", "contenedorTarea");
         div2.setAttribute("class", "contenedorTextoTarea");
         div3.setAttribute("class", "contenedorBotonesAcciones");
-        listTar.appendChild(div1)
-        div1.appendChild(div2)
-        div1.appendChild(div3)
+        let hr1 = document.createElement("hr");
+        listTar.appendChild(div1);
+        div1.appendChild(div2);
+        div1.appendChild(div3);
+        listTar.appendChild(hr1);
 
         let newTar = document.createElement("textArea");
         newTar.setAttribute("class", "tarea");
@@ -59,87 +64,14 @@ crearTarea = () => {
                 div3.appendChild(bot2);
                 div3.appendChild(bot3);
 
-                const botsvg1 = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-                botsvg1.setAttribute("xmlns", "http://www.w3.org/2000/svg");
-                
-                if (window.innerWidth <= 350) {
-                    botsvg1.setAttribute("width", "16");
-                    botsvg1.setAttribute("height", "16");
-                    botsvg1.setAttribute("viewBox", "-1.5 2.5 25 20");
-                }
-                else {
-                    botsvg1.setAttribute("width", "26");
-                    botsvg1.setAttribute("height", "26");
-                    botsvg1.setAttribute("viewBox", "4.5 2.5 15 20");
-                }
-                const polygon = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
-                polygon.setAttribute("points", "16 3 21 8 8 21 3 21 3 16 16 3");
-                polygon.setAttribute("fill", "none");
-                polygon.setAttribute("stroke", "#ffffff");
-                polygon.setAttribute("stroke-width", "2");
-                polygon.setAttribute("stroke-linecap", "butt");
-                polygon.setAttribute("stroke-linejoin", "arcs");
-                botsvg1.appendChild(polygon);
-                bot.appendChild(botsvg1); 
-
-                const botsvg2 = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-                botsvg2.setAttribute("xmlns", "http://www.w3.org/2000/svg");
-
-                if (window.innerWidth <= 350) {
-                    botsvg2.setAttribute("width", "16");
-                    botsvg2.setAttribute("height", "16");
-                    botsvg2.setAttribute("viewBox", "0 0 24 24");
-                }
-                else {
-                    botsvg2.setAttribute("width", "26");
-                    botsvg2.setAttribute("height", "26");
-                    botsvg2.setAttribute("viewBox", "9 3 5 18");
-                }
-                const polyline = document.createElementNS("http://www.w3.org/2000/svg", "polyline");
-                polyline.setAttribute("points", "20 6 9 17 4 12");
-                polyline.setAttribute("fill", "none");
-                polyline.setAttribute("stroke", "#ffffff");
-                polyline.setAttribute("stroke-width", "2");
-                polyline.setAttribute("stroke-linecap", "butt");
-                polyline.setAttribute("stroke-linejoin", "arcs");
-                botsvg2.appendChild(polyline);
+                const botsvg1 = document.createElement("img");
+                window.innerWidth <= 350 ? botsvg1.setAttribute("src", "icon1-a.svg") : botsvg1.setAttribute("src", "icon1-b.svg");
+                bot.appendChild(botsvg1);
+                const botsvg2 = document.createElement("img");
+                window.innerWidth <= 350 ? botsvg2.setAttribute("src", "icon2-a.svg") : botsvg2.setAttribute("src", "icon2-b.svg");
                 bot2.appendChild(botsvg2);
-
-                const botsvg3 = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-
-                if (window.innerWidth <= 350) {
-                    botsvg3.setAttribute("width", "16");
-                    botsvg3.setAttribute("height", "16");
-                    botsvg3.setAttribute("viewBox", "-1.2 0 26 24");
-                }
-                else {
-                    botsvg3.setAttribute("width", "26");
-                    botsvg3.setAttribute("height", "26");
-                    botsvg3.setAttribute("viewBox", "4 1 15 23");
-                }
-                botsvg3.setAttributeNS(null, "fill", "none");
-                botsvg3.setAttributeNS(null, "stroke", "#ffffff");
-                botsvg3.setAttributeNS(null, "stroke-width", "2");
-                botsvg3.setAttributeNS(null, "stroke-linecap", "butt");
-                botsvg3.setAttributeNS(null, "stroke-linejoin", "arcs");
-                const polyline2 = document.createElementNS("http://www.w3.org/2000/svg", "polyline");
-                polyline2.setAttributeNS(null, "points", "3 6 5 6 21 6");
-                const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-                path.setAttributeNS(null, "d", "M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2");
-                const line1 = document.createElementNS("http://www.w3.org/2000/svg", "line");
-                line1.setAttributeNS(null, "x1", "10");
-                line1.setAttributeNS(null, "y1", "11");
-                line1.setAttributeNS(null, "x2", "10");
-                line1.setAttributeNS(null, "y2", "17");
-                const line2 = document.createElementNS("http://www.w3.org/2000/svg", "line");
-                line2.setAttributeNS(null, "x1", "14");
-                line2.setAttributeNS(null, "y1", "11");
-                line2.setAttributeNS(null, "x2", "14");
-                line2.setAttributeNS(null, "y2", "17");
-                botsvg3.appendChild(polyline2);
-                botsvg3.appendChild(path);
-                botsvg3.appendChild(line1);
-                botsvg3.appendChild(line2);
+                const botsvg3 = document.createElement("img");
+                window.innerWidth <= 350 ? botsvg3.setAttribute("src", "icon3-a.svg") : botsvg3.setAttribute("src", "icon3-b.svg");
                 bot3.appendChild(botsvg3);
 
                 bot.addEventListener("click", () => {
@@ -183,13 +115,14 @@ crearTarea = () => {
 
                 bot3.addEventListener("click", () => {
                     listTar.removeChild(div1)
+                    listTar.removeChild(hr1)
                     if (window.innerWidth <= 350) {
-                        document.getElementsByClassName("contenedor")[0].style.height = altTar - 1.65 + "rem"; altTar = altTar - 1.65
+                        document.getElementsByClassName("contenedor")[0].style.height = altTar - 2.85 + "rem"; altTar = altTar - 2.85;
                         if (p.innerText.length >= 18 && window.innerWidth <= 350) {document.getElementsByClassName("contenedor")[0].style.height = altTar - 1.1 + "rem"; altTar = altTar - 1.1};
                     }
                     else {
-                        document.getElementsByClassName("contenedor")[0].style.height = altTar - 2.9 + "rem"; altTar = altTar - 2.9
-                        // if (p.innerText.length >= 49 && window.innerWidth >= 1080) {document.getElementsByClassName("contenedor")[0].style.height = altTar - 3.4 + "rem"; altTar = altTar - 3.4};
+                        document.getElementsByClassName("contenedor")[0].style.height = altTar - 4.2 + "rem"; altTar = altTar - 4.2;
+                        if (p.innerText.length >= 49 && window.innerWidth >= 1080) {document.getElementsByClassName("contenedor")[0].style.height = altTar - .4 + "rem"; altTar = altTar - .4};
                     }})
 
 
@@ -218,7 +151,9 @@ let cambiarTema = () => {
         svg2line2 = svg2.getElementsByTagName("line")[1];
         svg2line1.setAttribute("stroke", "#5370a7");
         svg2line2.setAttribute("stroke", "#5370a7");
-        document.querySelector("hr").style = "background-color: rgb(128, 151, 203)";
+        hr = document.querySelectorAll("hr");
+        for (i = 0; i < hr.length; i++) {
+            hr[i].style = "background-color: rgb(128, 151, 203)"}
         parrafos = document.querySelectorAll("p");
         for (i = 0; i < parrafos.length; i++) {
             textDecoration = window.getComputedStyle(parrafos[i]);
@@ -237,7 +172,9 @@ let cambiarTema = () => {
         svg2line2 = svg2.getElementsByTagName("line")[1];
         svg2line1.setAttribute("stroke", "#fff");
         svg2line2.setAttribute("stroke", "#fff");
-        document.querySelector("hr").style = "background-color: rgba(255, 255, 255, .1)";
+        hr = document.querySelectorAll("hr");
+        for (i = 0; i < hr.length; i++) {
+            hr[i].style = "background-color: rgba(255, 255, 255, .1)"}
         parrafos = document.querySelectorAll("p");
         for (i = 0; i < parrafos.length; i++) {
             textDecoration = window.getComputedStyle(parrafos[i]);
